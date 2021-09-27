@@ -1,14 +1,15 @@
 # gnn-fibrosis
 
-This is the code from the "Early Detection of Liver Fibrosis Using Graph Convolutional Networks" paper originally presented at the MICCAI'21 conference.
+This is the code from the [Early Detection of Liver Fibrosis Using Graph Convolutional Networks](https://link.springer.com/chapter/10.1007/978-3-030-87237-3_21)   paper originally presented at the MICCAI'21 conference.
 The purpose is to predict fibrosis grade from a PSR-stained liver biopsy. The graph construction pipeline is designed to explicitly mimic liver tissue architecture.
 
 ![image](https://user-images.githubusercontent.com/50372773/134362166-e995826a-cd64-403c-872e-c93e355c6c17.png)
 
-The pipeline is divided into two main parts:
+Here the code is divided into three scripts:
 
-1) (Tile clustering + tile classification) for tissue landmark identification
-2) Biopsy graph construction for biopsy grade prediction
+1) Tile clustering for tissue landmark identification
+2) Case processing (tile-by-tile classification)
+3) Biopsy graph construction for biopsy grade prediction
 
 
 ## Tile clustering
