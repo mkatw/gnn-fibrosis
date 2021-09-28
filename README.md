@@ -39,7 +39,12 @@ The reason for choosing this particular predefined graph structure is that liver
 Here we are using a GNN (GCN, GIN or GAT) to predict fibrosis grade from the constructed tissue graph. 
 ![image](https://user-images.githubusercontent.com/50372773/134362315-3871725f-5f80-4719-8f4b-c2d1b01fb375.png)
 
+## Using the code
+You need to modify paths in the code to match your data format. Unfortunately due to the private nature of our data we are not able to share any examples.
 
+- clustering.py expects path to im_dir, which is supposed to be a folder of presegmented tissue tiles saved in an image format (e.g. png). It outputs the res_net_kmeans.joblib classifier you can use for tile processing.
+- process_case.py needs paths to image-segmentation map pairs, as well as the tile classifier from clustering.py. It outputs two numpy arrays per slide: prediction.npy and features_map.npy. Prediction.npy is the array of tile-wise class predictions and features_map.npy are the corresponding tile features. These are both needed for tissue graph construction.
+- gcn_classification expects prediction.npy and features_map.npy, as well as a casewise_labels.csv which is the ground truth array for your dataset. You need to make sure that slide_name and ID are extracted from your filenames correctly. 
 
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
